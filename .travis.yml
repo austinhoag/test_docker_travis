@@ -9,7 +9,6 @@ before_install:
   - pip install -U pip
   - pip install -U pytest
   - pip install -U pytest-cov
-  - pip install codecov
   - export CODECOV_TOKEN="82325faf-9124-41ce-b3a0-2f524ed31455"
   - mkdir shared
 
@@ -18,4 +17,4 @@ script:
   - docker-compose run testflask
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
