@@ -13,8 +13,4 @@ before_install:
   - mkdir shared
 script: 
   - ./rebuild_all.sh
-  - docker-compose run testflask
-
-after_success:
-  - cd shared
-  - codecov
+  - docker-compose run --rm $(bash <(curl -s https://codecov.io/env)) testflask -c 'pytest --cov=./ && apk update && apk add git && codecov'
