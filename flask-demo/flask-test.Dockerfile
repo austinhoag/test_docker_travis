@@ -12,6 +12,6 @@ COPY . /app
 
 # Run the tests
 ENV FLASK_MODE=TEST
-CMD pytest -p no:cacheprovider --cov=tests -vs tests && \
+CMD pytest -p no:cacheprovider --cov=flask-demo/tests -vs flask-demo/tests && \
 	mkdir -p shared && \
 	mv .coverage shared
