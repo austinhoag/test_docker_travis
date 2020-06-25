@@ -17,6 +17,6 @@ services:
     build:
       context: ./flask-demo
       dockerfile: flask-demo.Dockerfile
-    command: "pytest -p no:cacheprovider -vs flask-demo/tests/test_main.py"
+    command: "pytest -p no:cacheprovider --cov=flask-demo/tests -vs flask-demo/tests"
     volumes:
       - .:/app # so changes made to the app are propagated to the container without having to rebuild

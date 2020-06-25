@@ -1,6 +1,13 @@
 services:
   - docker
 
+before_install:
+  - pip install codecov
+  - export CODECOV_TOKEN="82325faf-9124-41ce-b3a0-2f524ed31455"
+
 script: 
   - ./rebuild_all.sh
   - docker-compose run testflask
+
+after_install:
+  - codecov
