@@ -16,4 +16,5 @@ script:
   - docker-compose run testflask
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - cd shared
+  - codecov
