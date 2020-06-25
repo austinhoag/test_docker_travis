@@ -17,6 +17,7 @@ services:
     build:
       context: ./flask-demo
       dockerfile: flask-demo.Dockerfile
-    command: "pytest -p no:cacheprovider --cov=flask-demo/tests -vs flask-demo/tests"
+    command: bash -c "pytest -p no:cacheprovider --cov=flask-demo/tests -vs flask-demo/tests && mv .coverage /shared"
     volumes:
       - .:/app # so changes made to the app are propagated to the container without having to rebuild
+      - $PWD/shared:/shared

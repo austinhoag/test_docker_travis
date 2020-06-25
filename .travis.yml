@@ -11,6 +11,7 @@ before_install:
   - pip install -U pytest-cov
   - pip install codecov
   - export CODECOV_TOKEN="82325faf-9124-41ce-b3a0-2f524ed31455"
+  - mkdir shared
 
 script: 
   - ./rebuild_all.sh
