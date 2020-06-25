@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  flask-demo:
+    env_file: .env
+    build:
+      context: ./flask-demo
+      dockerfile: flask-demo.Dockerfile
+    command: python run.py
+    volumes:
+      - ./flask-demo:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '5005:5005'
+  testflask:
+    env_file: .testdockerenv
+    build:
+      context: ./flask-demo
+      dockerfile: flask-demo.Dockerfile
+    command: "pytest -p no:cacheprovider -vs flask-demo/tests/test_main.py"
+    volumes:
+      - .:/app # so changes made to the app are propagated to the container without having to rebuild

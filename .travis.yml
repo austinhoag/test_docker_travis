@@ -1,0 +1,6 @@
+services:
+  - docker
+
+script: 
+  - ./rebuild_all.sh
+  - docker-compose run testflask
