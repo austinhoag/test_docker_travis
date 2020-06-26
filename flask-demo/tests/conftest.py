@@ -1,6 +1,4 @@
 import os, sys
-if os.environ.get('FLASK_MODE') != 'TEST':
-	raise KeyError("Must set environmental variable FLASK_MODE=TEST")
 from flask import url_for,request
 import pytest
 
