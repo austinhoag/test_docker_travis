@@ -10,7 +10,8 @@ before_install:
   - pip install -U pytest
   - pip install -U pytest-cov
   - CODECOV_TOKEN="82325faf-9124-41ce-b3a0-2f524ed31455"
+  - apt get
   - mkdir shared
 script: 
   - ./rebuild_all.sh
-  - docker-compose run --rm $(bash <(curl -s https://codecov.io/env)) testflask -c 'pytest --cov=./ && apk update && apk add git && codecov'
+  - docker-compose run --rm $(bash <(curl -s https://codecov.io/env)) testflask bash -c 'pytest --cov=./ && codecov'
