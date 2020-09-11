@@ -3,9 +3,7 @@ version: "3.4"
 services:
   flask-demo:
     env_file: .env
-    build:
-      context: ./flask-demo
-      dockerfile: flask-demo.Dockerfile
+    image: athoag/docker_travis_demo:latest
     command: python run.py
     volumes:
       - ./flask-demo:/app
