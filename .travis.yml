@@ -13,8 +13,7 @@ before_install:
 - CODECOV_TOKEN="82325faf-9124-41ce-b3a0-2f524ed31455"
 script:
 - "./rebuild_test.sh"
-- docker-compose run --rm $(bash <(curl -s https://codecov.io/env)) testflask bash
-  -c 'pytest --cov=./ && codecov'
+- docker-compose run --rm testflask bash -c 'pytest --cov=./'
 deploy:
   provider: script
   script: bash scripts/deploy.sh
