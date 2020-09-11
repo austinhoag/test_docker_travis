@@ -6,5 +6,4 @@
 #   cd /home/ahoag/Git/test_docker_travis
 #   ./start_server.sh
 # EOF
-ls
 echo "success!"
