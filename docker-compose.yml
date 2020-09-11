@@ -3,7 +3,7 @@ version: "3.4"
 services:
   flask-demo:
     env_file: .env
-    image: athoag/docker_travis_demo:latest
+    image: docker_travis_demo:latest
     command: python run.py
     volumes:
       - ./flask-demo:/app
@@ -12,9 +12,7 @@ services:
       - '5005:5005'
   testflask:
     env_file: .testdockerenv
-    build:
-      context: ./flask-demo
-      dockerfile: flask-test.Dockerfile
+    image: docker_travis_demo:latest
     volumes:
       - .:/app # so changes made to the app are propagated to the container without having to rebuild
       - $PWD/shared:/shared
